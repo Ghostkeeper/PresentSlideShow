@@ -1,0 +1,202 @@
+@font-face {
+	font-family: HelvLight;
+	src: url("HelveticaLight.ttf");
+}
+
+@font-face {
+	font-family: HelvLight;
+	src: url("HelveticaLight.eot");
+}
+
+@font-face {
+	font-family: FuturaLT;
+	src: url("FuturaLT.ttf");
+}
+
+@font-face {
+	font-family: FuturaLT;
+	src: url("FuturaLT.eot");
+}
+
+html,body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	margin: 0px;
+	font-family: Futura LT Medium, FuturaLT, Helvetica Light, HelvLight, Verdana, Arial, sans-serif;
+	font-size: 24pt;
+	background-color: #FFFFFF;
+}
+
+div,span,td,tr,ul,ol,li,h1,h2,h3 {
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+div {
+	margin-top: 0%;
+	margin-bottom: 0%;
+	overflow:hidden;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100% auto;
+}
+
+iframe {
+	height: 800px;
+}
+
+ul,ol {
+	margin-top: 0%;
+	margin-bottom: 0%;
+	margin-left: 10%;
+	width: 80%;
+}
+
+tr,td {
+	vertical-align: top;
+}
+
+a:active,a:focus {
+	outline: none;
+}
+
+video:active,video:focus {
+	outline: none;
+}
+
+.header {
+	background-color: #0CA9E3;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+.content {
+	
+}
+
+.footer {
+	width: 100%;
+	position: absolute;
+	left:0px;
+	bottom: 0px;
+}
+
+.footerleft {
+	width: 80%;
+	float: left;
+	text-align: center;
+	background-color: #0CA9E3;
+}
+
+.footerright {
+	width: 20%;
+	float: right;
+	text-align: center;
+	background-color: #69D1F7;
+}
+
+.item {
+	position: relative;
+}
+
+.text {
+	margin-left: 10%;
+	width: 80%;
+	background-color: rgba(255,255,255,0.7);
+	padding: 0.1em;
+}
+
+.image {
+	text-align: center;
+}
+
+.logo {
+	position: fixed;
+	z-index: 1000;
+	left: 1%;
+	top: 0.2em;
+	width: 10%;
+	height: 5em;
+}
+
+@keyframes highlightPulse {
+	0% { border-color: white }
+	50% { border-color: #0CA9E3 }
+	100% { border-color: white }
+}
+.highlight {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 0.2em solid blue;
+	animation-name: highlightPulse;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+#content {
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100% auto;
+}
+
+@keyframes rot90 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-90deg);
+	}
+}
+
+@keyframes unrot90 {
+	0% {
+		transform: rotate(-90deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes pulseSize {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.7);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes pulseRot {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes pulseShear {
+	0% {
+		transform: skewX(0deg);
+	}
+	50% {
+		transform: skewX(45deg);
+	}
+	100% {
+		transform: skewX(0deg);
+	}
+}
