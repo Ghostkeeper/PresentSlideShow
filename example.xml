@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="presentation.xsl" ?>
+
+<presentation title="Example" resources="example-res/">
+	<logo>sakamoto.png</logo>
+	<category name="Introduction">
+		<slide title="Welcome">
+			<item>
+				<text>This is a slideshow framework that I use to create my presentations.</text>
+			</item>
+			<item>
+				<text>This example presentation will guide you through the features that the framework presents.</text>
+			</item>
+		</slide>
+		<slide title="Overview">
+			<item>
+				<text>The features in this presentation can be broken up in two categories:</text>
+				<bullet>XML (static) features</bullet>
+			</item>
+			<item>
+				<bullet>JavaScript (dynamic) features</bullet>
+			</item>
+		</slide>
+	</category>
+	<category name="XML Features">
+		<slide title="XML Features">
+			<item>
+				<text>The presentation itself is written down in an XML file.</text>
+			</item>
+			<item>
+				<text>This XML file is converted using presentation.xsl into a web document that displays the presentation. Use a browser to present your slides.</text>
+			</item>
+			<item>
+				<text>Convert your XML document to a slideshow using the following preprocessor tag before the root tag:</text>
+				<text>&lt;?xml-stylesheet type="text/xsl" href="presentation.xsl" ?&gt;</text>
+			</item>
+		</slide>
+		<slide title="XML Root">
+			<item>
+				<text>The XML file must have a root tag called "presentation". It has two attributes:</text>
+			</item>
+			<item>
+				<bullet>title: The title of the presentation. Only used to set the title of the HTML document (not visible in the presentation itself).</bullet>
+			</item>
+			<item>
+				<bullet>resources: The location where to find resources (such as for the &lt;image&gt; tag).</bullet>
+			</item>
+		</slide>
+		<slide title="Logo Tag">
+			<item>
+				<text>The &lt;logo&gt; tag indicates where to find the logo to display at the top left of the screen.</text>
+			</item>
+		</slide>
+		<slide title="Category Tag">
+			<item>
+				<text>The root tag contains a number of categories.</text>
+			</item>
+			<item>
+				<text>The &lt;category&gt; tag indicates the category name to show at the bottom of the screen.</text>
+				<text>This tag has the following attribute:</text>
+			</item>
+			<item>
+				<bullet>name: The name of the category to show.</bullet>
+			</item>
+		</slide>
+		<slide title="Slide Tag">
+			<item>
+				<text>Each category can have an arbitrary number of &lt;slide&gt; tags.</text>
+			</item>
+			<item>
+				<text>Slides are counted in the bottom right of the screen.</text>
+			</item>
+			<item>
+				<text>Only one slide is displayed at the same time.</text>
+			</item>
+			<item>
+				<text>Slides can have the following attributes:</text>
+				<bullet>title: The title to show at the top of the screen while the slide is displayed.</bullet>
+			</item>
+			<item>
+				<bullet>vertical: If present, the slide will be laid out in vertical mode. This will feature one item displayed at the top at the beginning. The rest of the items will each get one column from left to right.</bullet>
+			</item>
+		</slide>
+		<slide title="Background Tag">
+			<background>cake.jpg</background>
+			<item>
+				<text>The &lt;background&gt; tag in a slide indicates the image in the resources folder to display in the background of the slide.</text>
+			</item>
+			<item>
+				<text>The background is displayed in the bottom of the slide at 100% width. This means that you can make the image appear smaller if you add some transparent padding on the side.</text>
+			</item>
+		</slide>
+		<slide title="Item Tag">
+			<item>
+				<text>Each slide can have an arbitrary number of &lt;item&gt; tags.</text>
+			</item>
+			<item>
+				<text>Each item indicates the content that will be revealed at the same time. When advancing the slideshow, the next item will get displayed (or the next slide if all items of the slides are displayed).</text>
+			</item>
+			<item>
+				<text>Items can have only the attribute "in", indicating how to animate the item appearing. This attribute can have the following values:</text>
+			</item>
+			<item in="fade">
+				<bullet>"fade": The item becomes gradually more opaque. This is also the default.</bullet>
+			</item>
+			<item in="slide180">
+				<bullet>"slide###": The item slides in from the side of the screen. The ### indicates the direction (in degrees) that the item comes from.</bullet>
+			</item>
+		</slide>
+		<slide title="Text Tag">
+			<item>
+				<text>A &lt;text&gt; tag in an item indicates a piece of text.</text>
+			</item>
+			<item>
+				<text>The text tag can have the following attributes:</text>
+				<bullet>size: The font size to use. Please use the 'em' unit to ensure that the text properly scales to the screen.</bullet>
+			</item>
+			<item>
+				<bullet>align: Where to align the text (translated to text-align in CSS).</bullet>
+			</item>
+			<item>
+				<bullet>margin: The margin to add on the left.</bullet>
+			</item>
+			<item>
+				<text>Text tags can contain <strong>arbitrary HTML!</strong> You could use this to create &lt;div&gt;s and &lt;span&gt;s with IDs so that you can control them from JavaScript.</text>
+			</item>
+		</slide>
+		<slide title="Bullet Tag">
+			<item>
+				<text>A &lt;bullet&gt; tag in an item indicates an enumerated piece of text.</text>
+			</item>
+			<item>
+				<text>The bullet tag can have the following attribute:</text>
+				<bullet size="0.8em">size: The font size to use.</bullet>
+			</item>
+		</slide>
+		<slide title="Image Tag">
+			<item>
+				<text>An &lt;image&gt; tag in an item indicates an image. Put a url (relative to the resources directory) in the tag to point to the image to show.</text>
+				<image width="10%">sakamoto2.png</image>
+			</item>
+			<item>
+				<text>The image can have the following attributes:</text>
+				<bullet>width: The width of the image. Set to 90% if left out. Please use '%' as unit to make it scale with the screen.</bullet>
+			</item>
+			<item>
+				<bullet>height: The height of the image. Please use '%' as unit to make it scale with the screen. Leave it out to preserve aspect ratio.</bullet>
+			</item>
+		</slide>
+		<slide title="Video Tag">
+			<item>
+				<text>A &lt;video&gt; tag in an item displays a video.</text>
+				<text>Put the link to the video file inside the tag.</text>
+			</item>
+			<item>
+				<text>The tag essentially just creates an iframe to the indicated URL. It is intended for the YouTube embedded link.</text>
+			</item>
+			<item>
+				<text>Beware that clicking in the iframe will not advance to the next slide like normal. Click on the title bar or use the hotkeys to advance.</text>
+			</item>
+		</slide>
+		<slide title="Video Tag Example">
+			<item>
+				<video>https://www.youtube.com/embed/hWLjYJ4BzvI</video>
+			</item>
+		</slide>
+		<slide title="Videoloop Tag">
+			<item>
+				<text>A &lt;videoloop&gt; tag in an item displays a video, frameless, in a loop.</text>
+				<text>Inside the tag, put a link to the URL of the video inside the resource folder.</text>
+			</item>
+			<item>
+				<text>The video loop tag has the following optional attribute:</text>
+				<bullet>width: The width of the video. If not present, 90% is used. Use the '%' unit to let it scale with the resolution of the screen.</bullet></item>
+			<item>
+				<text>Currently only OGG/Theora videos are supported (since there is no way to indicate the codec in the tag).</text>
+			</item>
+		</slide>
+		<slide title="Videoloop Tag Example">
+			<item>
+				<videoloop width="20%">looping_video.mp4</videoloop>
+			</item>
+		</slide>
+		<slide title="Clock Tag">
+			<item>
+				<text>A &lt;clock&gt; tag will display the current time.</text>
+				<clock />
+			</item>
+		</slide>
+		<slide title="Script Tag">
+			<item>
+				<text>A &lt;script&gt; tag executes a piece of JavaScript.</text>
+			</item>
+			<item>
+				<text>This can be used to make your slides more interactive:
+					<div id="scriptTagExample">Such as by moving items!</div>
+				</text>
+				<script>
+					setInterval(moveRightExample, 2000);
+					function moveRightExample() {
+						document.getElementById("scriptTagExample").style.paddingLeft = "3%";
+					}
+					setInterval(moveLeftExample, 1111);
+					function moveLeftExample() {
+						document.getElementById("scriptTagExample").style.paddingLeft = "0%";
+					}
+				</script>
+			</item>
+			<item>
+				<text>Script tags under the &lt;slide&gt; tag get executed when the slide is shown.</text>
+				<text>Script tags under the &lt;item&gt; tag get executed when the item is shown.</text>
+			</item>
+			<item>
+				<text>Don't forget to <strong>reset the slide in the slide-wide &lt;script&gt; tag</strong> so that the slide still looks the same if you go back to a previously-displayed slide that executed JavaScript.</text>
+			</item>
+		</slide>
+	</category>
+	<category name="JavaScript Features">
+		<slide title="JavaScript Features">
+			<item>
+				<text>Code executed in &lt;script&gt; tags may execute arbitrary JavaScript.</text>
+			</item>
+			<item>
+				<text>But this framework provides some shorthands for things that are common in (my) slideshows.</text>
+			</item>
+		</slide>
+		<slide title="nextItem()">
+			<item>
+				<text>The nextItem() function displays the next item, or the next slide if all items of the current slide are already shown.</text>
+			</item>
+		</slide>
+		<slide title="nextSlide()">
+			<item>
+				<text>The nextSlide() function always goes to the next slide.</text>
+			</item>
+		</slide>
+		<slide title="previousSlide()">
+			<item>
+				<text>The previousSlide() function always goes to the previous slide.</text>
+			</item>
+		</slide>
+		<slide title="gotoSlide()">
+			<item>
+				<text>The goToSlide(goalSlide) function goes to a specific slide number.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>goalSlide: The slide number (starting counting from 0) to move to.</bullet>
+			</item>
+		</slide>
+		<slide title="fadeIn()">
+			<item>
+				<text>The fadeIn(element) function starts an animation of the specified DOM element fading in from 0% to 100% opacity.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>element: The ID of the element to fade in.</bullet>
+			</item>
+			<item>
+				<text>
+					<div id="fadeInExample">The effect looks like this (advance once more).</div>
+				</text>
+			</item>
+			<item>
+				<script>fadeIn("fadeInExample");</script>
+			</item>
+		</slide>
+		<slide title="fadeOut()">
+			<script>
+				show("fadeOutExample");
+			</script>
+			<item>
+				<text>The fadeOut(element) function starts an animation of the specified DOM element fading out from 100% to 0% opacity.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>element: The ID of the element to fade out.</bullet>
+			</item>
+			<item>
+				<text>
+					<div id="fadeOutExample">The effect looks like this (advance once more).</div>
+				</text>
+			</item>
+			<item>
+				<script>fadeOut("fadeOutExample");</script>
+			</item>
+		</slide>
+		<slide title="show()">
+			<script>
+				hide("showExample");
+			</script>
+			<item>
+				<text>The show(element) function immediately shows the specified DOM element.</text>
+				<text>This is equivalent to fadeIn() but without the delayed animation. It is useful to run in the slide-wide &lt;script&gt; tag to reset the visibility of things.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>element: The ID of the element to show.</bullet>
+			</item>
+			<item>
+				<text>The effect looks like this (advance once more).
+					<div id="showExample">This text appears immediately.</div>
+				</text>
+			</item>
+			<item>
+				<script>show("showExample");</script>
+			</item>
+		</slide>
+		<slide title="hide()">
+			<script>
+				show("hideExample");
+			</script>
+			<item>
+				<text>The hide(element) function immediately hides the specified DOM element.</text>
+				<text>This is equivalent to fadeOut() but without the delayed animation. It is useful to run in the slide-wide &lt;script&gt; tag to reset the visibility of things.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>element: The ID of the element to hide.</bullet>
+			</item>
+			<item>
+				<text>
+					<div id="hideExample">The effect looks like this (advance once more).</div>
+				</text>
+			</item>
+			<item>
+				<script>hide("hideExample");</script>
+			</item>
+		</slide>
+		<slide title="slideIn()">
+			<item>
+				<text>The slideIn(element, direction) function moves the element outside of the view, then slides it into the view.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameters:</text>
+				<bullet>element: The ID of the element to slide into view.</bullet>
+			</item>
+			<item>
+				<bullet>direction: The direction from which the item slides into view, in degrees.</bullet>
+			</item>
+			<item>
+				<text>
+					<span id="slideInExample" style="position:relative">The effect looks like this.</span>
+				</text>
+				<script>slideIn("slideInExample", 0);</script>
+			</item>
+			<item>
+				<text>Be sure to use position:relative on the element in question.</text>
+			</item>
+		</slide>
+		<slide title="slideTo()">
+			<script>
+				moveTo("slideToExample", 10, 0);
+			</script>
+			<item>
+				<text>The slideTo(element, to_x, to_y) function slides the element gradually to a certain position. Sadly, the coordinate system is a bit awkward.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameters:</text>
+				<bullet>element: The ID of the element to slide.</bullet>
+			</item>
+			<item>
+				<bullet>to_x: The X coordinate of the position to slide towards, in percentage of the width of the parent element.</bullet>
+				<bullet>to_y: The Y coordinate of the position to slide towards, in percentage of the height of the parent element.</bullet>
+			</item>
+			<item>
+				<text>
+					<span id="slideToExample" style="margin-left: 10%; margin-top: 0%">The effect looks like this (advance once more).</span>
+				</text>
+			</item>
+			<item>
+				<script>slideTo("slideToExample", 30, 0);</script>
+			</item>
+		</slide>
+		<slide title="moveTo()">
+			<script>
+				moveTo("moveToExample", 10, 0);
+			</script>
+			<item>
+				<text>The moveTo(element, to_x, to_y) function moves the element immediately to a certain position. Sadly, the coordinate system is a bit awkward.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameters:</text>
+				<bullet>element: The ID of the element to move.</bullet>
+			</item>
+			<item>
+				<bullet>to_x: The X coordinate of the position to move towards, in percentage of the width of the parent element.</bullet>
+				<bullet>to_y: The Y coordinate of the position to move towards, in percentage of the height of the parent element.</bullet>
+			</item>
+			<item>
+				<text>
+					<span id="moveToExample" style="margin-left: 10%; margin-top: 0%">The effect looks like this (advance once more).</span>
+				</text>
+			</item>
+			<item>
+				<script>moveTo("moveToExample", 30, 0);</script>
+			</item>
+		</slide>
+		<slide title="highLight()">
+			<script>
+				unHighLight(2);
+			</script>
+			<item>
+				<text>The highLight(item_id) function creates a pulsating border around the specified item on the current slide.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>item_id: The number of the item to highlight (starting count from 0).</bullet>
+			</item>
+			<item>
+				<text>The effect looks like this.</text>
+				<script>highLight(2);</script>
+			</item>
+		</slide>
+		<slide title="unHighLight()">
+			<script>
+				highLight(2);
+			</script>
+			<item>
+				<text>The unHighLight(item_id) function removes the highlighting from the specified item on the current slide.</text>
+			</item>
+			<item>
+				<text>The function takes the following parameter:</text>
+				<bullet>item_id: The number of the item to remove the highlight from (starting count from 0).</bullet>
+			</item>
+			<item>
+				<text>The effect looks like this (advance once more).</text>
+			</item>
+			<item>
+				<script>unHighLight(2);</script>
+			</item>
+		</slide>
+		<slide title="Useful Variables">
+			<item>
+				<text>Some global variables may be of use in your code:</text>
+			</item>
+			<item>
+				<bullet>curSlide: The currently displayed slide number (starting from 0).</bullet>
+			</item>
+			<item>
+				<bullet>curItem: The currently displayed item number on the current slide (starting from 0).</bullet>
+			</item>
+		</slide>
+		<slide title="Accessing Slides and Items">
+			<item>
+				<text>Slides and items get their own divs with a specific element ID:</text>
+			</item>
+			<item>
+				<bullet>Slides get the element ID "slide#" with the slide number filled in at the #.</bullet>
+			</item>
+			<item>
+				<bullet>Items get the element ID "slide#item%" with the slide number filled in at the # and the item number filled in at the %.</bullet>
+			</item>
+		</slide>
+	</category>
+</presentation>
