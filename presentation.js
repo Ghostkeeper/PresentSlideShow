@@ -38,7 +38,11 @@ function nextItem() {
 	}
 	var inEffect = document.getElementById("slide" + curSlide + "item" + curItem).getAttribute("in");
 	if(inEffect == "fade") { //Fade in effect.
-		show("slide" + curSlide + "item" + curItem); //But don't fade in the first item. It's faded by fading out the previous slide.
+		if(curItem == 0) { //But don't fade in the first item. It's faded by fading out the previous slide.
+			show("slide" + curSlide + "item" + curItem);
+		} else {
+			fadeIn("slide" + curSlide + "item" + curItem);
+		}
 	} else if(inEffect.substring(0, 5) == "slide") { //Slide in effect.
 		slideIn("slide" + curSlide + "item" + curItem,parseFloat(inEffect.substring(5))); //Parse the direction of the slide.
 	}
