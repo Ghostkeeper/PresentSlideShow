@@ -36,7 +36,7 @@
 				</xsl:if>
 				<div style="position:absolute; left:0px; top:0px; width:100%; height:100%; visibility:hidden; opacity:0; filter:alpha(opacity=0);">
 					<xsl:attribute name="id">slide<xsl:value-of select="$slidenr" /></xsl:attribute>
-					
+
 					<div class="header">
 						<xsl:attribute name="id">header<xsl:value-of select="$slidenr" /></xsl:attribute>
 						<xsl:if test="@titlefont">

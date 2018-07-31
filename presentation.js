@@ -31,7 +31,7 @@ function nextItem() {
 		window.location.hash = curSlide;
 		curItem = 0;
 		resize();
-		fadeIn("slide" + curSlide);
+		show("slide" + curSlide);
 		slideEvent();
 	}
 	var inEffect = document.getElementById("slide" + curSlide + "item" + curItem).getAttribute("in");
@@ -63,8 +63,8 @@ function nextSlide() {
 	window.location.hash = curSlide;
 	curItem = 0;
 	resize();
-	fadeIn("slide" + curSlide);
-	fadeIn("slide" + curSlide + "item" + curItem);
+	show("slide" + curSlide);
+	show("slide" + curSlide + "item" + curItem);
 	slideEvent();
 }
 
@@ -80,8 +80,8 @@ function previousSlide() {
 	window.location.hash = curSlide;
 	curItem = 0;
 	resize();
-	fadeIn("slide" + curSlide);
-	fadeIn("slide" + curSlide + "item" + curItem);
+	show("slide" + curSlide);
+	show("slide" + curSlide + "item" + curItem);
 	slideEvent();
 }
 
@@ -102,8 +102,8 @@ function goToSlide(goalSlide) {
 	window.location.hash = curSlide;
 	curItem = 0;
 	resize();
-	fadeIn("slide" + curSlide);
-	fadeIn("slide" + curSlide + "item" + curItem);
+	show("slide" + curSlide);
+	show("slide" + curSlide + "item" + curItem);
 	slideEvent();
 }
 
