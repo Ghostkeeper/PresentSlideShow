@@ -235,7 +235,7 @@ function slideIn(element,direction) {
 		elem.style.top = "" + slideDistance * fraction * Math.sin(direction) + "px";
 		fraction -= (0.1 + fraction) * 0.1; //First transitions fast, then slows down towards minimum fraction.
 		if(fraction <= 0) fraction = 0; //Don't go past 0.
-	},5); //Execute this every 10ms.
+	},10); //Execute this every 10ms.
 }
 
 function slideTo(element,tox,toy) {
