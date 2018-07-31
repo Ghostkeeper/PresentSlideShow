@@ -34,7 +34,7 @@
 						}
 					</script>
 				</xsl:if>
-				<div style="position:absolute; left:0px; top:0px; width:100%; height:100%; visibility:hidden; opacity:0; filter:alpha(opacity=0);">
+				<div style="position:absolute; left:0px; top:0px; width:100%; height:100%; visibility:hidden; opacity:0; filter:alpha(opacity=0); background-color: #FFFFFF;">
 					<xsl:attribute name="id">slide<xsl:value-of select="$slidenr" /></xsl:attribute>
 
 					<div class="header">

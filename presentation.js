@@ -26,18 +26,20 @@ function nextItem() {
 		for(var i = 0;i < numitems[curSlide];i += 1) {
 			fadeOut("slide" + curSlide + "item" + i);
 		}
+		document.getElementById("slide" + curSlide).style.zIndex = "1";
 		fadeOut("slide" + curSlide);
 		curSlide += 1;
 		window.location.hash = curSlide;
 		curItem = 0;
 		resize();
+		document.getElementById("slide" + curSlide).style.zIndex = "0";
 		show("slide" + curSlide);
 		slideEvent();
 	}
 	var inEffect = document.getElementById("slide" + curSlide + "item" + curItem).getAttribute("in");
 	if(inEffect == "fade") { //Fade in effect.
-		fadeIn("slide" + curSlide + "item" + curItem);
-	} else if(inEffect.substring(0,5) == "slide") { //Slide in effect.
+		show("slide" + curSlide + "item" + curItem); //But don't fade in the first item. It's faded by fading out the previous slide.
+	} else if(inEffect.substring(0, 5) == "slide") { //Slide in effect.
 		slideIn("slide" + curSlide + "item" + curItem,parseFloat(inEffect.substring(5))); //Parse the direction of the slide.
 	}
 	nextItemEvent();
@@ -58,11 +60,13 @@ function nextSlide() {
 	for(var i = 0;i < numitems[curSlide];i += 1) {
 		fadeOut("slide" + curSlide + "item" + i);
 	}
+	document.getElementById("slide" + curSlide).style.zIndex = "1";
 	fadeOut("slide" + curSlide);
 	curSlide += 1;
 	window.location.hash = curSlide;
 	curItem = 0;
 	resize();
+	document.getElementById("slide" + curSlide).style.zIndex = "0";
 	show("slide" + curSlide);
 	show("slide" + curSlide + "item" + curItem);
 	slideEvent();
@@ -75,11 +79,13 @@ function previousSlide() {
 	for(var i = 0;i < numitems[curSlide];i += 1) {
 		fadeOut("slide" + curSlide + "item" + i);
 	}
+	document.getElementById("slide" + curSlide).style.zIndex = "1";
 	fadeOut("slide" + curSlide);
 	curSlide -= 1;
 	window.location.hash = curSlide;
 	curItem = 0;
 	resize();
+	document.getElementById("slide" + curSlide).style.zIndex = "0";
 	show("slide" + curSlide);
 	show("slide" + curSlide + "item" + curItem);
 	slideEvent();
@@ -97,11 +103,13 @@ function goToSlide(goalSlide) {
 	for(var i = 0;i < numitems[curSlide];i += 1) {
 		fadeOut("slide" + curSlide + "item" + i);
 	}
+	document.getElementById("slide" + curSlide).style.zIndex = "1";
 	fadeOut("slide" + curSlide);
 	curSlide = goalSlide;
 	window.location.hash = curSlide;
 	curItem = 0;
 	resize();
+	document.getElementById("slide" + curSlide).style.zIndex = "0";
 	show("slide" + curSlide);
 	show("slide" + curSlide + "item" + curItem);
 	slideEvent();
