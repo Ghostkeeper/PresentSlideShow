@@ -23,18 +23,7 @@ function nextItem() {
 			curItem -= 1; //Undo that.
 			return;
 		}
-		for(var i = 0;i < numitems[curSlide];i += 1) {
-			fadeOut("slide" + curSlide + "item" + i);
-		}
-		document.getElementById("slide" + curSlide).style.zIndex = "1";
-		fadeOut("slide" + curSlide);
-		curSlide += 1;
-		window.location.hash = curSlide;
-		curItem = 0;
-		resize();
-		document.getElementById("slide" + curSlide).style.zIndex = "0";
-		show("slide" + curSlide);
-		slideEvent();
+		nextSlide();
 	}
 	var inEffect = document.getElementById("slide" + curSlide + "item" + curItem).getAttribute("in");
 	if(inEffect == "fade") { //Fade in effect.
