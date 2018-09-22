@@ -48,13 +48,12 @@
 					<div class="content" style="height:100%;">
 						<xsl:attribute name="style">
 							height: 100%;
-							<xsl:if test="@nonewline">margin-top: -1em;</xsl:if>
 						</xsl:attribute>
 						<xsl:if test="background">
 							<xsl:attribute name="style">background-image: url('<xsl:value-of select="//presentation/@resources" /><xsl:value-of select="background" />')</xsl:attribute>
 						</xsl:if>
-						
-						<xsl:if test="not(item/video)">
+
+						<xsl:if test="not(item/video) and not(@nonewline)">
 							<br />
 						</xsl:if>
 						
