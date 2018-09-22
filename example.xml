@@ -83,7 +83,7 @@
 		</slide>
 		<slide title="slide/@nonewline" nonewline="yes">
 			<item>
-				<text>If the nonewline attribute of a &lt;slide&gt; tag is set, the content is aligned exactly to the header.</text>
+				<text>If the nonewline attribute of a &lt;slide&gt; tag is set, the content is aligned exactly to the header. This gives some extra space.</text>
 			</item>
 		</slide>
 		<slide title="Background Tag">

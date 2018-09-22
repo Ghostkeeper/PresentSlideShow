@@ -48,7 +48,7 @@
 					<div class="content" style="height:100%;">
 						<xsl:attribute name="style">
 							height: 100%;
-							<xsl:if test="not(@nonewline)">padding-top: -1em;</xsl:if>
+							<xsl:if test="@nonewline">margin-top: -1em;</xsl:if>
 						</xsl:attribute>
 						<xsl:if test="background">
 							<xsl:attribute name="style">background-image: url('<xsl:value-of select="//presentation/@resources" /><xsl:value-of select="background" />')</xsl:attribute>
