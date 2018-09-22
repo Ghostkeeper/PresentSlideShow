@@ -39,23 +39,23 @@
 						}
 					</script>
 				</xsl:if>
-				<div style="position:absolute; left:0px; top:0px; width:100%; height:100%; visibility:hidden; opacity:0; filter:alpha(opacity=0); background-color: #FFFFFF;">
+				<div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; visibility: hidden; opacity: 0; filter: alpha(opacity=0); background-color: #FFFFFF">
 					<xsl:attribute name="id">slide<xsl:value-of select="$slidenr" /></xsl:attribute>
 
 					<!-- Header with the title of the slide in it. -->
 					<div class="header">
 						<xsl:attribute name="id">header<xsl:value-of select="$slidenr" /></xsl:attribute>
 						<xsl:if test="@titlefont">
-							<xsl:attribute name="style">font-family: <xsl:value-of select="@titlefont" />;</xsl:attribute>
+							<xsl:attribute name="style">font-family: <xsl:value-of select="@titlefont" /></xsl:attribute>
 						</xsl:if>
 						<xsl:value-of select="@title" />
 					</div>
 
 					<!-- Main content of the slide.
 					Note that this content gets rescaled with the window width. -->
-					<div class="content" style="height:100%;">
+					<div class="content" style="height: 100%">
 						<xsl:attribute name="style">
-							height: 100%;
+							height: 100%
 						</xsl:attribute>
 						<xsl:if test="background">
 							<xsl:attribute name="style">background-image: url('<xsl:value-of select="//presentation/@resources" /><xsl:value-of select="background" />')</xsl:attribute>
@@ -77,30 +77,30 @@
 								start enumerating immediately upon initial loading of the slide. You can tell what you're
 								going to enumerate while displaying this initial horizontal item.-->
 								<!-- Initially, all items are hidden until they are revealed by the nextItem() function. -->
-								<div class="item" style="visibility:hidden; opacity:0; filter:alpha(opacity=0);">
+								<div class="item" style="visibility: hidden; opacity: 0; filter: alpha(opacity=0)">
 									<xsl:attribute name="id">slide<xsl:value-of select="$slidenr" />item0</xsl:attribute>
 									<xsl:attribute name="in">
 										<xsl:choose>
-											<xsl:when test="starts-with(@in,'fade')">fade</xsl:when>
-											<xsl:when test="starts-with(@in,'slide')">slide<xsl:value-of select="substring(@in,6)" /></xsl:when>
+											<xsl:when test="starts-with(@in, 'fade')">fade</xsl:when>
+											<xsl:when test="starts-with(@in, 'slide')">slide<xsl:value-of select="substring(@in, 6)" /></xsl:when>
 											<xsl:otherwise>fade</xsl:otherwise>
 										</xsl:choose>
 									</xsl:attribute>
 									<xsl:apply-templates select="item[1]" />
 								</div>
 								<!-- Display the rest of the items underneath in a table. -->
-								<table style="width:94%; margin-left:3%; height:100%;"> <!-- Height is too high, but we hide scroll bars anyway. -->
-									<tr style="height:100%;">
+								<table style="width: 94%; margin-left: 3%; height: 100%"> <!-- Height is too high, but we hide scroll bars anyway. -->
+									<tr style="height: 100%">
 										<xsl:for-each select="item[position() > 1]">
 											<!-- Initially, all items are hidden until they are revealed by the nextItem() function. -->
-											<td class="item" style="visibility:hidden; opacity:0; filter:alpha(opacity=0); height:100%">
+											<td class="item" style="visibility: hidden; opacity: 0; filter: alpha(opacity=0); height: 100%">
 												<xsl:attribute name="id">slide<xsl:value-of select="$slidenr" />item<xsl:value-of select="position()" /></xsl:attribute>
 												<!-- Communicate to JavaScript how we should transition in the item.
 												If it's a slide-in, we must position it differently. -->
 												<xsl:attribute name="in">
 													<xsl:choose>
-														<xsl:when test="starts-with(@in,'fade')">fade</xsl:when>
-														<xsl:when test="starts-with(@in,'slide')">slide<xsl:value-of select="substring(@in,6)" /></xsl:when>
+														<xsl:when test="starts-with(@in, 'fade')">fade</xsl:when>
+														<xsl:when test="starts-with(@in, 'slide')">slide<xsl:value-of select="substring(@in, 6)" /></xsl:when>
 														<xsl:otherwise>fade</xsl:otherwise>
 													</xsl:choose>
 												</xsl:attribute>
@@ -124,12 +124,12 @@
 								<!-- Display all items as rows: Divs just underneath each other. -->
 								<xsl:for-each select="item">
 									<!-- Initially, all items are hidden until they are revealed by the nextItem() function. -->
-									<div class="item" style="visibility:hidden; opacity:0; filter:alpha(opacity=0);">
+									<div class="item" style="visibility: hidden; opacity: 0; filter: alpha(opacity=0)">
 										<xsl:attribute name="id">slide<xsl:value-of select="$slidenr" />item<xsl:value-of select="position() - 1" /></xsl:attribute>
 										<xsl:attribute name="in">
 											<xsl:choose>
-												<xsl:when test="starts-with(@in,'fade')">fade</xsl:when>
-												<xsl:when test="starts-with(@in,'slide')">slide<xsl:value-of select="substring(@in,6)" /></xsl:when>
+												<xsl:when test="starts-with(@in, 'fade')">fade</xsl:when>
+												<xsl:when test="starts-with(@in, 'slide')">slide<xsl:value-of select="substring(@in, 6)" /></xsl:when>
 												<xsl:otherwise>fade</xsl:otherwise>
 											</xsl:choose>
 										</xsl:attribute>
@@ -154,9 +154,9 @@
 					</div>
 				</div>
 			</xsl:for-each>
-			<div class="footer" style="z-index: -100;"> <!-- Footer is always on top. -->
-				<div class="footerleft" style="z-index: -100;">&#160;</div>
-				<div class="footerright" style="z-index: -100;">&#160;</div>
+			<div class="footer" style="z-index: -100"> <!-- Footer is always on top. -->
+				<div class="footerleft" style="z-index: -100">&#160;</div>
+				<div class="footerright" style="z-index: -100">&#160;</div>
 			</div>
 		</body>
 	</html>
@@ -178,7 +178,7 @@ These tags are the only ones allowed in an <item> tag. The rest is ignored.
 				text-align: <xsl:value-of select="@align" />;
 			</xsl:if>
 			<xsl:if test="@margin">
-				padding-left: <xsl:value-of select="@margin" />;
+				padding-left: <xsl:value-of select="@margin" />
 			</xsl:if>
 		</xsl:attribute>
 		<xsl:copy-of select="." />
@@ -193,7 +193,7 @@ Otherwise this tag is identical to <text>. -->
 		<li>
 			<xsl:attribute name="style">
 				<xsl:if test="@size">
-					font-size: <xsl:value-of select="@size" />;
+					font-size: <xsl:value-of select="@size" />
 				</xsl:if>
 			</xsl:attribute>
 			<xsl:copy-of select="." />
