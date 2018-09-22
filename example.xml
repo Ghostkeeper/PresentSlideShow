@@ -81,6 +81,11 @@
 				<bullet>vertical: If present, the slide will be laid out in vertical mode. This will feature one item displayed at the top at the beginning. The rest of the items will each get one column from left to right.</bullet>
 			</item>
 		</slide>
+		<slide title="slide/@nonewline" nonewline="yes">
+			<item>
+				<text>If the nonewline attribute of a &lt;slide&gt; tag is set, the content is aligned exactly to the header.</text>
+			</item>
+		</slide>
 		<slide title="Background Tag">
 			<background>cake.jpg</background>
 			<item>
