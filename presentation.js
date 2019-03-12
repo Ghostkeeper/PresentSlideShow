@@ -274,3 +274,8 @@ function unHighLight(item_id) {
 	var elem = document.getElementById("slide" + curSlide + "item" + item_id);
 	elem.classList.remove("highlight");
 }
+
+function changeBackground(resource) {
+	var elem = document.getElementById("slide" + curSlide);
+	elem.style.backgroundImage = "url('res/" + resource + "')";
+}
