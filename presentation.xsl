@@ -228,7 +228,7 @@ Actually this just displays an iframe. You could put anything in here.
 It's intended and tested to work with YouTube. -->
 <xsl:template match="video">
 	<iframe width="100%" frameborder="0" allowfullscreen="yes">
-		<xsl:attribute name="src"><xsl:value-of select="." /></xsl:attribute>
+		<xsl:attribute name="src"><xsl:value-of select="//presentation/@resources" /><xsl:value-of select="." /></xsl:attribute>
 	</iframe>
 </xsl:template>
 
