@@ -130,6 +130,18 @@
 				<text>Text tags can contain <strong>arbitrary HTML!</strong> You could use this to create &lt;div&gt;s and &lt;span&gt;s with IDs so that you can control them from JavaScript.</text>
 			</item>
 		</slide>
+		<slide title="Code Tag">
+			<item>
+				<code>A &lt;code&gt; tag in an item indicates a piece of code.</code>
+			</item>
+			<item>
+				<code>The code tag is mono-spaced and preserves whitespace.
+So you can just write newlines.
+    And even indentation if you want.
+		But don't use indentation in your XML!
+Just be careful with making your lines too long though, or it will pass off the edge of your screen.</code>
+			</item>
+		</slide>
 		<slide title="Bullet Tag">
 			<item>
 				<text>A &lt;bullet&gt; tag in an item indicates an enumerated piece of text.</text>

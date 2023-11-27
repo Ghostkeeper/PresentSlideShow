@@ -115,6 +115,13 @@ video:active,video:focus {
 	padding: 0.1em;
 }
 
+.code {
+	margin-left: 10%;
+	width: 80%;
+	background-color: rgba(255,255,255,0.7);
+	padding: 0.1em;
+}
+
 .image {
 	text-align: center;
 }

@@ -185,6 +185,24 @@ These tags are the only ones allowed in an <item> tag. The rest is ignored.
 	</div>
 </xsl:template>
 
+<!-- For displaying monospaced text in an item. -->
+<xsl:template match="code">
+	<pre class="code">
+		<xsl:attribute name="style">
+			<xsl:if test="@size">
+				font-size: <xsl:value-of select="@size" />;
+			</xsl:if>
+			<xsl:if test="@align">
+				text-align: <xsl:value-of select="@align" />;
+			</xsl:if>
+			<xsl:if test="@margin">
+				padding-left: <xsl:value-of select="@margin" />
+			</xsl:if>
+		</xsl:attribute>
+		<xsl:copy-of select="." />
+	</pre>
+</xsl:template>
+
 <!-- Displays a bullet point in front of the text.
 The @align and @margin properties are not allowed for bullet points.
 Otherwise this tag is identical to <text>. -->
